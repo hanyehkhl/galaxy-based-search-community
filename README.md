@@ -9,11 +9,10 @@ Community Detection با الگوریتم Galaxy-based Search Algorithm (GbSA) �
 - 🌌 پیاده‌سازی کامل الگوریتم GbSA برای شناسایی اجتماعات
 - 🖥 داشبورد وب با FastAPI + فرانت بدون build (vis-network + Chart.js)
 - 🎨 دو تم: روشن (پاستیلی) و تاریک — با ذخیره انتخاب کاربر
-- 🤖 دستیار هوشمند LLM (سازگار با OpenAI API و Ollama لوکال):
+- 🤖 دستیار هوشمند LLM (سازگار با OpenAI و Ollama لوکال):
   - تحلیل و تفسیر خودکار نتایج به فارسی
   - پیشنهاد پارامتر بهینه بر اساس مشخصات گراف
   - چت‌بات متصل (Docked) برای پرسش و پاسخ درباره نتایج
-  - حلقه خودتنظیم چندعاملی (`/api/llm/autotune`)
 - 📊 رسم تعاملی گراف با رنگ‌بندی اجتماعات + نمودار همگرایی Q
 - 📁 آپلود گراف دلخواه (edge list) از طریق مرورگر
 
@@ -77,7 +76,6 @@ gbsa_community/
 ├── modularity.py        # calculate_modularity(graph, partition) -> float
 ├── gbsa.py              # کلاس GbSA (spiral_chaotic_move, local_search, run)
 ├── llm.py               # دستیار هوشمند (تحلیل، پیشنهاد پارامتر، چت)
-├── autotune.py          # حلقه خودتنظیم Executor + Critic
 ├── main.py              # اجرای CLI + پرینت/رسم نتیجه
 ├── app.py               # سرور FastAPI (API + سرو فرانت)
 ├── static/              # فرانت‌اند (بدون build)
@@ -112,27 +110,27 @@ uv sync
 فایل `.env` را ویرایش کنید:
 
 ```bash
-# LLM — OpenAI-compatible API
+# LLM — OpenAI (پیش‌فرض) یا هر API سازگار با OpenAI
 OPENAI_BASE_URL=https://api.openai.com/v1
-OPENAI_API_KEY=sk-...              # your key
-OPENAI_MODEL=gpt-4o-mini
+OPENAI_API_KEY=aa-...          # کلید خودتان
+OPENAI_MODEL=deepseek-v4-flash
 OPENAI_REQUEST_TIMEOUT=60
 OPENAI_ENABLED=true
 
-# Algorithm
+# الگوریتم
 GBSA_POPULATION_SIZE=20
 GBSA_ITERATIONS=50
 GBSA_DATASET_PATH=data/karate.gml
 ```
 
-**Local Ollama** (without changing `.env`):
+**استفاده از Ollama لوکال** (بدون تغییر `.env`):
 
 ```powershell
-$env:GBSA_LLM_PROVIDER = "ollama"      # default model: llama3.2
-$env:GBSA_LLM_MODEL = "mistral"        # optional
+$env:GBSA_LLM_PROVIDER = "ollama"      # مدل پیش‌فرض: llama3.2
+$env:GBSA_LLM_MODEL = "mistral"        # اختیاری
 ```
 
-Priority: `GBSA_LLM_*` (OS env) ← `OPENAI_*` (`.env`) ← defaults
+اولویت: `GBSA_LLM_*` (OS env) ← `OPENAI_*` (فایل .env) ← پیش‌فرض
 
 ### اجرای CLI
 
@@ -171,7 +169,6 @@ uv run uvicorn app:app --host 0.0.0.0 --port 8000
 | `POST` | `/api/llm/analyze` | تحلیل نتایج با LLM |
 | `POST` | `/api/llm/suggest` | پیشنهاد پارامتر بهینه |
 | `POST` | `/api/llm/chat` | چت درباره نتایج |
-| `POST` | `/api/llm/autotune` | حلقه خودتنظیم Executor + Critic |
 | `GET` | `/api/health` | بررسی سلامت سرور |
 
 #### مثال `/api/run`

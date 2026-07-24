@@ -35,8 +35,8 @@ if llm_provider == "ollama":
     llm_timeout = int(os.getenv("GBSA_LLM_REQUEST_TIMEOUT", "60"))
     llm_enabled = os.getenv("GBSA_LLM_ENABLED", "true").lower() in ("1", "true", "yes")
 else:
-    # OpenAI-compatible: GBSA_LLM_* ← OPENAI_* ← پیش‌فرض
-    llm_model = _pick("GBSA_LLM_MODEL", "OPENAI_MODEL", default="gpt-4o-mini")
+    # OPENAI (OpenAI-compatible): GBSA_LLM_* ← OPENAI_* ← پیش‌فرض
+    llm_model = _pick("GBSA_LLM_MODEL", "OPENAI_MODEL", default="deepseek-v4-flash")
     llm_api_key = _pick("GBSA_LLM_API_KEY", "OPENAI_API_KEY", default="")
     llm_base_url = _pick("GBSA_LLM_BASE_URL", "OPENAI_BASE_URL", default="")
     llm_timeout = int(_pick("GBSA_LLM_REQUEST_TIMEOUT", "OPENAI_REQUEST_TIMEOUT", default="60"))
