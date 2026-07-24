@@ -1,0 +1,19 @@
+[project]
+name = "gbsa-community"
+version = "0.1.0"
+description = "Community Detection with Galaxy-based Search Algorithm (GbSA)"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.139.2",
+    "matplotlib>=3.11.1",
+    "networkx>=3.6.1",
+    "openai>=2.48.0",
+    "python-dotenv>=1.2.2",
+    "python-multipart>=0.0.32",
+    "uvicorn>=0.51.0",
+]
+
+[project.scripts]
+gbsa = "main:main"
+serve = "app:serve"

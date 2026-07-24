@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GbSA Community Detection</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <button class="theme-toggle" id="theme-toggle" title="تغییر تم">🌙</button>
+        <h1>GbSA Community Detection</h1>
+        <p>الگوریتم جستجوی مبتنی بر کهکشان — شناسایی اجتماعات در گراف</p>
+    </header>
+
+    <main>
+        <!-- پنل کنترل -->
+        <section class="panel">
+            <h2>⚙ پیکربندی</h2>
+            <form id="run-form">
+                <label>
+                    <span class="label-icon">📁</span> فایل گراف (اختیاری)
+                    <div class="file-upload">
+                        <input type="file" id="file" accept=".txt,.gml,.csv,.edges" />
+                        <div class="file-upload-label">
+                            <span class="file-icon">📂</span>
+                            <span class="file-name" id="file-name">Select File</span>
+                        </div>
+                    </div>
+                </label>
+                <label>
+                    <span class="label-icon">👥</span> اندازه جمعیت
+                    <input type="number" id="population" value="20" min="2" max="200" />
+                </label>
+                <label>
+                    <span class="label-icon">🔄</span> تعداد تکرار
+                    <input type="number" id="iterations" value="50" min="1" max="500" />
+                </label>
+                <button type="submit" class="btn-primary" id="run-btn">▶ اجرای الگوریتم</button>
+                <button type="button" class="btn-outline" id="suggest-btn">✨ پیشنهاد پارامتر با AI</button>
+            </form>
+            <div id="status" class="status"></div>
+        </section>
+
+        <!-- پنل نتایج -->
+        <section class="results">
+            <!-- کارت آمار یکپارچه -->
+            <div class="metrics-bar">
+                <div class="metric">
+                    <span class="metric-value" id="m-nodes">—</span>
+                    <span class="metric-label">نودها</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-value" id="m-edges">—</span>
+                    <span class="metric-label">یال‌ها</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-value" id="m-comms">—</span>
+                    <span class="metric-label">اجتماعات</span>
+                </div>
+                <div class="metric highlight">
+                    <span class="metric-value" id="m-q">—</span>
+                    <span class="metric-label">Modularity</span>
+                </div>
+            </div>
+
+            <div class="grid">
+                <div class="card"><h3>🌐 گراف شبکه</h3><div id="graph"></div></div>
+                <div class="card"><h3>📈 همگرایی Q</h3><canvas id="convergence-chart"></canvas></div>
+            </div>
+
+            <div class="card">
+                <h3>📋 Partition</h3>
+                <pre id="partition-output">هنوز اجرا نشده است.</pre>
+            </div>
+
+            <!-- تحلیل AI -->
+            <div class="card" id="ai-section">
+                <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0;">
+                    <h3 style="margin-bottom:0;">🧠 تحلیل هوشمند نتایج</h3>
+                    <button class="btn-outline" id="analyze-btn">شروع تحلیل</button>
+                </div>
+                <div id="ai-output" class="ai-output" style="display:none;"></div>
+                <div id="ai-loading" class="ai-loading" style="display:none;">در حال تحلیل...</div>
+            </div>
+        </section>
+    </main>
+
+    <!-- پنل چت Docked -->
+    <div class="chat-dock" id="chat-dock">
+        <div class="chat-dock-header" id="chat-dock-header">
+            <span class="chat-dock-title">
+                <span class="chat-dock-icon">G</span>
+                هوش مصنوعی GbSA
+            </span>
+            <span class="chat-dock-actions">
+                <span class="chat-dock-badge" id="chat-badge" style="display:none;"></span>
+                <button class="chat-dock-toggle" id="chat-toggle">▾</button>
+            </span>
+        </div>
+        <div class="chat-dock-body">
+            <div class="chat-history" id="chat-history"></div>
+            <div id="chat-loading" class="ai-loading" style="display:none;">در حال پاسخ...</div>
+            <div class="chat-input-row">
+                <input type="text" class="chat-input" id="chat-input" placeholder="سوالی بپرسید..." />
+                <button class="chat-send-btn" id="chat-btn">➤</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+
+</html>

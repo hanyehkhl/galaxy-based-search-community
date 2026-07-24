@@ -1,0 +1,656 @@
+/* ===== فونت ===== */
+@import url("https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css");
+
+/* ===== تم روشن (پیش‌فرض) ===== */
+:root {
+    --bg: #fcf9f7;
+    --bg-warm: #faf5f2;
+    --surface: #ffffff;
+    --surface-hover: #fefaf8;
+    --border: #ede4df;
+    --border-light: #f2ebe6;
+    --text: #3d3434;
+    --text-dim: #7a6e6e;
+    --text-muted: #b0a5a5;
+    --primary: #e8a0a0;
+    --primary-hover: #d98b8b;
+    --primary-glow: rgba(255, 183, 178, 0.35);
+    --btn-gradient: linear-gradient(135deg, #e8a0a0, #d4a0c4);
+    --btn-gradient-hover: linear-gradient(135deg, #d98b8b, #c58db5);
+    --success: #7ecfaa;
+    --success-dark: #5eaa82;
+    --success-glow: rgba(181, 234, 215, 0.4);
+    --warn: #e8c76a;
+    --radius: 16px;
+    --radius-sm: 10px;
+    --shadow: 0 2px 16px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.04);
+    --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+    --glass: rgba(255, 255, 255, 0.88);
+    --glass-border: rgba(0, 0, 0, 0.05);
+    --graph-bg: #fdfbf9;
+    --graph-edge: #e0d8d4;
+    --graph-edge-highlight: #d98b8b;
+    --graph-font: #5e4b4b;
+    --chart-grid: rgba(0, 0, 0, 0.06);
+    --input-bg: #faf5f2;
+    --input-border: #ede4df;
+    --chat-user-bg: #f0f9f6;
+    --chat-user-border: #d8f0e5;
+    --chat-user-text: #3d5e4e;
+    --chat-bot-bg: #fff5f5;
+    --chat-bot-border: #ffe8e8;
+    --chat-bot-text: #5e4b4b;
+    --chat-error-bg: #fff0f0;
+    --chat-error-border: #ffd4d4;
+    --chat-error-text: #c06060;
+    --chat-input-bg: rgba(0, 0, 0, 0.025);
+    --chat-dock-icon: linear-gradient(135deg, #e8a0a0, #c7ceea);
+    --partition-bg: #faf5f2;
+    --file-bg: #faf5f2;
+    --file-border: #ede4df;
+    --header-bg: linear-gradient(180deg, #fff 0%, #fffaf8 100%);
+    --header-text: #d98b8b;
+    --btn-disabled: #e8ddd8;
+    --btn-outline-hover-bg: #fff5f5;
+    --ai-output-bg: #faf5f2;
+}
+
+/* ===== تم تاریک ===== */
+[data-theme="dark"] {
+    --bg: #090d1a;
+    --bg-warm: #0c1224;
+    --surface: #0f1629;
+    --surface-hover: #151e35;
+    --border: #1e2d4a;
+    --border-light: #263455;
+    --text: #e0e6f2;
+    --text-dim: #8894b0;
+    --text-muted: #5e6985;
+    --primary: #4f83f7;
+    --primary-hover: #3b72e8;
+    --primary-glow: rgba(79, 131, 247, 0.18);
+    --btn-gradient: linear-gradient(135deg, #3b82f6, #6366f1);
+    --btn-gradient-hover: linear-gradient(135deg, #2563eb, #5558e6);
+    --success: #2dd4bf;
+    --success-dark: #2dd4bf;
+    --success-glow: rgba(45, 212, 191, 0.15);
+    --warn: #fbbf24;
+    --radius: 14px;
+    --radius-sm: 10px;
+    --shadow: 0 4px 24px rgba(0, 0, 0, 0.35), 0 1px 4px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 12px 48px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.3);
+    --glass: rgba(15, 22, 41, 0.82);
+    --glass-border: rgba(255, 255, 255, 0.06);
+    --graph-bg: radial-gradient(ellipse at center, rgba(15, 22, 41, 0.6) 0%, #090d1a 100%);
+    --graph-edge: #1e2d4a;
+    --graph-edge-highlight: #4f83f7;
+    --graph-font: #ffffff;
+    --chart-grid: rgba(30, 45, 74, 0.4);
+    --input-bg: #090d1a;
+    --input-border: #263455;
+    --chat-user-bg: rgba(45, 212, 191, 0.1);
+    --chat-user-border: rgba(45, 212, 191, 0.15);
+    --chat-user-text: #e0e6f2;
+    --chat-bot-bg: rgba(59, 130, 246, 0.12);
+    --chat-bot-border: rgba(59, 130, 246, 0.18);
+    --chat-bot-text: #e0e6f2;
+    --chat-error-bg: rgba(248, 113, 113, 0.1);
+    --chat-error-border: rgba(248, 113, 113, 0.2);
+    --chat-error-text: #fca5a5;
+    --chat-input-bg: rgba(255, 255, 255, 0.05);
+    --chat-dock-icon: linear-gradient(135deg, #4f83f7, #818cf8);
+    --partition-bg: #090d1a;
+    --file-bg: #090d1a;
+    --file-border: #263455;
+    --header-bg: linear-gradient(180deg, rgba(15, 22, 41, 0.95), rgba(9, 13, 26, 0.6));
+    --header-text: transparent;
+    --header-gradient: linear-gradient(135deg, #60a5fa, #818cf8);
+    --btn-disabled: #263455;
+    --btn-outline-hover-bg: #151e35;
+    --ai-output-bg: #090d1a;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: "Vazirmatn", "Segoe UI", Tahoma, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    min-height: 100vh;
+}
+
+/* ===== هدر ===== */
+header {
+    text-align: center;
+    padding: 36px 24px;
+    background: var(--header-bg);
+    border-bottom: 1px solid var(--border);
+    position: relative;
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+/* روشن: رنگ ساده - تاریک: گرادیانت */
+:root header h1 { color: var(--header-text); }
+[data-theme="dark"] header h1 {
+    background: var(--header-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+header p {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    margin-top: 6px;
+    font-weight: 400;
+}
+
+/* ===== دکمه تعویض تم ===== */
+.theme-toggle {
+    position: absolute;
+    left: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    color: var(--text-dim);
+    box-shadow: var(--shadow);
+}
+
+.theme-toggle:hover {
+    color: var(--primary-hover);
+    border-color: var(--primary);
+    transform: translateY(-50%) scale(1.08);
+}
+
+/* ===== لایه اصلی ===== */
+main {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 32px 24px 120px;
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 28px;
+}
+
+/* ===== پنل ===== */
+.panel, .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow);
+}
+
+.panel h2, .card h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card h3 { font-size: 0.85rem; color: var(--text-dim); font-weight: 600; }
+
+/* ===== فرم پارامترها ===== */
+form { display: flex; flex-direction: column; gap: 18px; }
+
+label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+label .label-icon { margin-right: 4px; opacity: 0.8; }
+
+input[type="number"] {
+    background: var(--input-bg);
+    border: 1.5px solid var(--input-border);
+    border-radius: var(--radius-sm);
+    padding: 12px 14px;
+    color: var(--text);
+    font-size: 0.95rem;
+    font-family: inherit;
+    transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+input[type="number"]:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px var(--primary-glow);
+}
+
+/* دکمه آپلود فایل */
+.file-upload {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.file-upload input[type="file"] {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.file-upload-label {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--file-bg);
+    border: 1.5px dashed var(--file-border);
+    border-radius: var(--radius-sm);
+    padding: 14px 16px;
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.25s;
+}
+
+.file-upload-label:hover {
+    border-color: var(--primary);
+    color: var(--text);
+    background: var(--surface-hover);
+}
+
+.file-upload-label .file-icon { font-size: 1.2rem; }
+
+.file-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* دکمه‌ها */
+button {
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 14px 20px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.25s;
+    letter-spacing: 0.3px;
+}
+
+.btn-primary {
+    background: var(--btn-gradient);
+    color: #fff;
+    box-shadow: 0 4px 16px var(--primary-glow);
+}
+
+.btn-primary:hover {
+    box-shadow: 0 6px 24px var(--primary-glow);
+    transform: translateY(-1px);
+}
+
+.btn-primary:disabled {
+    background: var(--btn-disabled);
+    box-shadow: none;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1.5px solid var(--border);
+    color: var(--text-dim);
+    font-weight: 600;
+    font-size: 0.82rem;
+    padding: 12px 16px;
+}
+
+.btn-outline:hover:not(:disabled) {
+    border-color: var(--primary);
+    color: var(--primary-hover);
+    background: var(--btn-outline-hover-bg);
+}
+
+.btn-outline:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.status {
+    margin-top: 16px;
+    font-size: 0.8rem;
+    color: var(--warn);
+    min-height: 22px;
+    line-height: 1.6;
+}
+
+.status.error { color: #e07070; }
+:root .status.error { color: #e07070; }
+[data-theme="dark"] .status.error { color: #f87171; }
+
+.status.success { color: var(--success-dark); }
+
+/* ===== نتایج ===== */
+.results { display: flex; flex-direction: column; gap: 24px; }
+
+/* کارت آمار یکپارچه */
+.metrics-bar {
+    display: flex;
+    gap: 0;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.metric {
+    flex: 1;
+    padding: 24px 18px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border-right: 1px solid var(--border);
+    transition: background 0.25s;
+}
+
+.metric:last-child { border-right: none; }
+
+.metric:hover { background: var(--surface-hover); }
+
+.metric-value {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.5px;
+}
+
+.metric.highlight .metric-value {
+    color: var(--success-dark);
+}
+
+.metric-label {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ===== گراف و نمودار ===== */
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+.card { position: relative; }
+
+#graph {
+    height: 450px;
+    background: var(--graph-bg);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    border: 1px solid var(--border-light);
+}
+
+#convergence-chart { max-height: 450px; }
+
+/* ===== Partition ===== */
+#partition-output {
+    background: var(--partition-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 16px;
+    font-size: 0.76rem;
+    overflow-x: auto;
+    max-height: 250px;
+    color: var(--text-dim);
+    font-family: "Vazirmatn", "Consolas", monospace;
+    white-space: pre;
+}
+
+/* ===== تحلیل AI ===== */
+#ai-section { display: none; }
+
+.ai-output {
+    background: var(--ai-output-bg);
+    border-radius: var(--radius-sm);
+    padding: 18px;
+    font-size: 0.82rem;
+    line-height: 2;
+    white-space: pre-wrap;
+    max-height: 400px;
+    overflow-y: auto;
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+.ai-loading {
+    color: var(--warn);
+    font-size: 0.82rem;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ai-loading::before {
+    content: "";
+    width: 14px;
+    height: 14px;
+    border: 2px solid var(--border-light);
+    border-top-color: var(--warn);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ===== پنل چت Docked ===== */
+.chat-dock {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 420px;
+    max-height: 520px;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    backdrop-filter: blur(20px);
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+.chat-dock.collapsed { max-height: 54px; }
+
+.chat-dock-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+    cursor: pointer;
+    border-bottom: 1px solid var(--glass-border);
+    user-select: none;
+    flex-shrink: 0;
+}
+
+.chat-dock-header:hover { background: rgba(128, 128, 128, 0.05); }
+
+.chat-dock-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.chat-dock-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: var(--chat-dock-icon);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: #fff;
+    font-weight: 800;
+    flex-shrink: 0;
+}
+
+.chat-dock-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.chat-dock-badge {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--success);
+    box-shadow: 0 0 8px var(--success-glow);
+}
+
+.chat-dock-toggle {
+    background: none;
+    border: none;
+    color: var(--text-dim);
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 4px;
+    transition: color 0.2s;
+}
+
+.chat-dock-toggle:hover { color: var(--text); }
+
+.chat-dock-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+    padding: 14px;
+    gap: 12px;
+}
+
+.chat-dock.collapsed .chat-dock-body { display: none; }
+
+.chat-history {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 300px;
+    padding-right: 4px;
+}
+
+.chat-history::-webkit-scrollbar { width: 4px; }
+.chat-history::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+.chat-msg {
+    padding: 12px 15px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    line-height: 1.7;
+    max-width: 90%;
+    animation: msgIn 0.25s ease-out;
+}
+
+@keyframes msgIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+.chat-msg.bot {
+    background: var(--chat-bot-bg);
+    border: 1px solid var(--chat-bot-border);
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+    color: var(--chat-bot-text);
+}
+
+.chat-msg.user {
+    background: var(--chat-user-bg);
+    border: 1px solid var(--chat-user-border);
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+    color: var(--chat-user-text);
+}
+
+.chat-msg.error {
+    background: var(--chat-error-bg);
+    border-color: var(--chat-error-border);
+    color: var(--chat-error-text);
+}
+
+.chat-input-row {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.chat-input {
+    flex: 1;
+    background: var(--chat-input-bg);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 11px 14px;
+    color: var(--text);
+    font-size: 0.82rem;
+    font-family: inherit;
+    transition: border-color 0.25s;
+}
+
+.chat-input:focus { outline: none; border-color: var(--primary); }
+.chat-input::placeholder { color: var(--text-muted); font-size: 0.78rem; }
+
+.chat-send-btn {
+    background: var(--btn-gradient);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.25s;
+    font-family: inherit;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.chat-send-btn:hover { box-shadow: 0 0 16px var(--primary-glow); }
+
+/* ===== Responsive ===== */
+@media (max-width: 960px) {
+    main { grid-template-columns: 1fr; }
+    .grid { grid-template-columns: 1fr; }
+    .metrics-bar { flex-wrap: wrap; }
+    .metric { flex: 1 1 45%; border-bottom: 1px solid var(--border); }
+    .metric:nth-child(2) { border-right: none; }
+    .chat-dock { width: calc(100% - 32px); right: 16px; }
+    .theme-toggle { left: 12px; }
+}
+
+@media (max-width: 540px) {
+    .metric { flex: 1 1 100%; border-right: none; }
+}
